@@ -33,8 +33,8 @@ with open(sys.argv[3], "w") as f:
     f.write("\toutput logic signed [23:0] out;\n")
     f.write("\talways_comb begin\n")
     f.write("\t\tcase(index)\n")
-    for i in range(len(data)):
-        f.write(f"\t\t\t{i}: out = 24'({data[i]});\n")
+    for i in range(0, len(data), 20):
+        f.write(f"\t\t\t{i // 20}: out = 24'({data[i]});\n")
     f.write("\t\t\tdefault: out = 0;\n")
     f.write("\t\tendcase\n")
     f.write("\tend\n")
