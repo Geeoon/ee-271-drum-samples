@@ -18,10 +18,17 @@ import sys
 import numpy as np
 from scipy.io import wavfile as wf
 
+DOWNSAMPLING_SCALAR = 20
+
 samplerate, data = wf.read(sys.argv[1])
+samplerate = samplerate // DOWNSAMPLING_SCALAR
+number_of_points = len(data) // DOWNSAMPLING_SCALAR
 print(f"Sample rate: {samplerate}")
 
-print(f"Number of points: {len(data)}")
+print(f"Number of points: {number_of_points}")
+
+print(f"Counter soft limit: {50_000_000 // samplerate}")
+print(f"Counter hard limit: {(50_000_000 // samplerate) * number_of_points}")
 
 with open(sys.argv[2], "wb") as f:
     for i in range(len(data)):
@@ -33,8 +40,8 @@ with open(sys.argv[3], "w") as f:
     f.write("\toutput logic signed [15:0] out;\n")
     f.write("\talways_comb begin\n")
     f.write("\t\tcase(index)\n")
-    for i in range(0, len(data), 20):
-        f.write(f"\t\t\t{i // 20}: out = 16'({data[i]});\n")
+    for i in range(0, len(data), DOWNSAMPLING_SCALAR):
+        f.write(f"\t\t\t{i // DOWNSAMPLING_SCALAR}: out = 16'({data[i]});\n")
     f.write("\t\t\tdefault: out = 0;\n")
     f.write("\t\tendcase\n")
     f.write("\tend\n")
