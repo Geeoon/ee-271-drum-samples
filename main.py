@@ -29,12 +29,12 @@ with open(sys.argv[2], "wb") as f:
 
 with open(sys.argv[3], "w") as f:
     f.write(f"module {sys.argv[4]}(index, out);\n")
-    f.write("\tinput logic unsigned [9:0] index;\n")
+    f.write("\tinput logic unsigned [23:0] index;\n")
     f.write("\toutput logic signed [23:0] out;\n")
     f.write("\talways_comb begin\n")
     f.write("\t\tcase(index)\n")
     for i in range(len(data)):
-        f.write(f"\t\t\t{i}: out = {data[i]};\n")
+        f.write(f"\t\t\t{i}: out = 24'({data[i]});\n")
     f.write("\t\t\tdefault: out = 0;\n")
     f.write("\t\tendcase\n")
     f.write("\tend\n")
