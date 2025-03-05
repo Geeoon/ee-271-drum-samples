@@ -1,5 +1,5 @@
 module kick_lookup(index, out);
-	input logic unsigned [10:0] index;
+	input logic unsigned [12:0] index;
 	output logic signed [15:0] out;
 	always_comb begin
 		case(index)

@@ -18,7 +18,7 @@ import sys
 import numpy as np
 from scipy.io import wavfile as wf
 
-DOWNSAMPLING_SCALAR = 20
+DOWNSAMPLING_SCALAR = 4
 
 samplerate, data = wf.read(sys.argv[1])
 samplerate = samplerate // DOWNSAMPLING_SCALAR
@@ -36,7 +36,7 @@ with open(sys.argv[2], "wb") as f:
 
 with open(sys.argv[3], "w") as f:
     f.write(f"module {sys.argv[4]}(index, out);\n")
-    f.write("\tinput logic unsigned [10:0] index;\n")
+    f.write(f"\tinput logic unsigned [{math.ceil(math.log(number_of_points, 2)) - 1}:0] index;\n")
     f.write("\toutput logic signed [15:0] out;\n")
     f.write("\talways_comb begin\n")
     f.write("\t\tcase(index)\n")
