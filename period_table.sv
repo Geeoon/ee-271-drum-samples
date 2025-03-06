@@ -3,7 +3,7 @@ module period_table(octave, note, out);
 	input logic [3:0] note;
 	output logic signed [23:0] out;
 	always_comb begin
-		case(index)
+		case(octave)
 			0: begin
 				case (note)
 					0: out = 24'(909091);
@@ -20,6 +20,7 @@ module period_table(octave, note, out);
 					11: out = 24'(481574);
 					default: out = 24'bX;
 				endcase
+			end
 			1: begin
 				case (note)
 					0: out = 24'(454545);
@@ -36,6 +37,7 @@ module period_table(octave, note, out);
 					11: out = 24'(240787);
 					default: out = 24'bX;
 				endcase
+			end
 			2: begin
 				case (note)
 					0: out = 24'(227273);
@@ -52,6 +54,7 @@ module period_table(octave, note, out);
 					11: out = 24'(120394);
 					default: out = 24'bX;
 				endcase
+			end
 			3: begin
 				case (note)
 					0: out = 24'(113636);
@@ -68,6 +71,7 @@ module period_table(octave, note, out);
 					11: out = 24'(60197);
 					default: out = 24'bX;
 				endcase
+			end
 			4: begin
 				case (note)
 					0: out = 24'(56818);
@@ -84,6 +88,7 @@ module period_table(octave, note, out);
 					11: out = 24'(30098);
 					default: out = 24'bX;
 				endcase
+			end
 			5: begin
 				case (note)
 					0: out = 24'(28409);
@@ -100,6 +105,7 @@ module period_table(octave, note, out);
 					11: out = 24'(15049);
 					default: out = 24'bX;
 				endcase
+			end
 			6: begin
 				case (note)
 					0: out = 24'(14205);
@@ -116,6 +122,7 @@ module period_table(octave, note, out);
 					11: out = 24'(7525);
 					default: out = 24'bX;
 				endcase
+			end
 			7: begin
 				case (note)
 					0: out = 24'(7102);
@@ -132,6 +139,7 @@ module period_table(octave, note, out);
 					11: out = 24'(3762);
 					default: out = 24'bX;
 				endcase
+			end
 			default: out = 24'bX;
 		endcase
 	end
