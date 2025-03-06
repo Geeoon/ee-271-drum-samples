@@ -13,7 +13,7 @@ with open("./period_table.sv", "w") as f:
         f.write(f"\t\t\t\tcase (note)\n")
         for j in range(12):
             f.write(f"\t\t\t\t\t{j}: out = 24'({round( 25_000_000.0 / (27.5 * (math.pow(2, (i * 12.0 + j) / 12.0))) )});\n")
-        f.write(f"\t\t\t\t\tdefault: 24'bX;\n")
+        f.write(f"\t\t\t\t\tdefault: out = 24'bX;\n")
         f.write(f"\t\t\t\tendcase\n")
     f.write("\t\t\tdefault: out = 24'bX;\n")
     f.write("\t\tendcase\n")
