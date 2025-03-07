@@ -18,7 +18,7 @@ import sys
 import numpy as np
 from scipy.io import wavfile as wf
 
-DOWNSAMPLING_SCALAR = 4
+DOWNSAMPLING_SCALAR = 1
 
 samplerate, data = wf.read(sys.argv[1])
 samplerate = samplerate // DOWNSAMPLING_SCALAR
