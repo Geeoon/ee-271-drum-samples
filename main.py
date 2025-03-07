@@ -34,6 +34,8 @@ with open(sys.argv[2], "wb") as f:
     for i in range(len(data)):
         f.write(int(data[i]).to_bytes(2, signed=True))
 
+test_points = []
+
 with open(sys.argv[3], "w") as f:
     f.write(f"module {sys.argv[4]}(index, out);\n")
     f.write(f"\tinput logic unsigned [{math.ceil(math.log(number_of_points, 2)) - 1}:0] index;\n")
@@ -41,8 +43,12 @@ with open(sys.argv[3], "w") as f:
     f.write("\talways_comb begin\n")
     f.write("\t\tcase(index)\n")
     for i in range(0, len(data), DOWNSAMPLING_SCALAR):
+        test_points += (data[i],)
         f.write(f"\t\t\t{i // DOWNSAMPLING_SCALAR}: out = 16'({data[i]});\n")
     f.write("\t\t\tdefault: out = 0;\n")
     f.write("\t\tendcase\n")
     f.write("\tend\n")
     f.write("endmodule\n")
+
+wf.write('testfile.wav', samplerate, np.array(test_points))
+# print(np.array(test_points))

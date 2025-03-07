@@ -3,58 +3,57 @@ Binary files TR-909 samples.  For the EE 271 final project drum machine in Syste
 
 Taken from http://machines.hyperreal.org/manufacturers/Roland/TR-909/samples/
 
-# downsampling by 4
 ## Snare: 
-Sample rate: 11025
+Sample rate: 44100
 
-Number of points: 2936
+Number of points: 11745
 
-Counter soft limit: 4535
+Counter soft limit: 1133
 
-Counter hard limit: 13314760
+Counter hard limit: 13307085
 
 ## Kick:
-Sample rate: 11025
+Sample rate: 44100
 
-Number of points: 5446
+Number of points: 21786
 
-Counter soft limit: 4535
+Counter soft limit: 1133
 
-Counter hard limit: 24697610
+Counter hard limit: 24683538
 
 ## Closed Hi-Hat:
-Sample rate: 11025
+Sample rate: 44100
 
-Number of points: 1248
+Number of points: 4994
 
-Counter soft limit: 4535
+Counter soft limit: 1133
 
-Counter hard limit: 5659680
+Counter hard limit: 5658202
 
 ## Crash 1:
-Sample rate: 11025
+Sample rate: 44100
 
-Number of points: 9947
+Number of points: 39790
 
-Counter soft limit: 4535
+Counter soft limit: 1133
 
-Counter hard limit: 45109645
+Counter hard limit: 45082070
 
 ## Ride:
-Sample rate: 11025
+Sample rate: 44100
 
-Number of points: 12021
+Number of points: 48085
 
-Counter soft limit: 4535
+Counter soft limit: 1133
 
-Counter hard limit: 54515235
+Counter hard limit: 54480305
 
 ## Open Hi-Hat:
-Sample rate: 11025
+Sample rate: 44100
 
-Number of points: 4830
+Number of points: 19322
 
-Counter soft limit: 4535
+Counter soft limit: 1133
 
-Counter hard limit: 21904050
+Counter hard limit: 21891826
 
